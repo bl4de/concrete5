@@ -46,7 +46,7 @@ class Controller extends BlockController implements NotificationProviderInterfac
 {
     protected $btInterfaceWidth = 640;
     protected $btCacheBlockOutput = false;
-    protected $btInterfaceHeight = 480;
+    protected $btInterfaceHeight = 700;
     protected $btTable = 'btExpressForm';
     protected $entityManager;
 
@@ -434,6 +434,10 @@ class Controller extends BlockController implements NotificationProviderInterfac
             $entity->setName($name);
             $entityManager->persist($entity);
             $entityManager->flush();
+
+            $nodeId = $entity->getEntityResultsNodeId();
+            $node = Node::getByID($nodeId);
+            $node->setTreeNodeName($name);
         }
 
         $attributeKeyCategory = $entity->getAttributeKeyCategory();
