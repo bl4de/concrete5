@@ -69,4 +69,4 @@ __IDE_SYMBOLS__.php
 /.php_cs.cache
 
 # ignore Visual Code project files
-.vscode
+.vscodecomposer.lock
